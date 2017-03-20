@@ -1,0 +1,5 @@
+wqh\model\User.class
+wqh\service\UserServiceI.class
+wqh\controller\UserController.class
+wqh\service\UserServiceImpl.class
+wqh\dao\UserMapper.class
