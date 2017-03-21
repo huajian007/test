@@ -22,4 +22,34 @@
 		from tuser
 		where ID = #{id,jdbcType=VARCHAR}
 	</select>
+	
+	 <resultMap id="BaseResultMap1" type="wqh.model.PayDetail" >
+    <id column="ID" property="id" jdbcType="INTEGER" />
+    <result column="ST_ID" property="stId" jdbcType="INTEGER" />
+    <result column="POSITION" property="position" jdbcType="VARCHAR" />
+    <result column="ATTENDANCE_DAYS" property="attendanceDays" jdbcType="DECIMAL" />
+    <result column="ACTUAL_DAYS" property="actualDays" jdbcType="DECIMAL" />
+    <result column="BASE_SALARY" property="baseSalary" jdbcType="DECIMAL" />
+    <result column="SUBSIDY" property="subsidy" jdbcType="DECIMAL" />
+    <result column="PRIZE" property="prize" jdbcType="DECIMAL" />
+    <result column="SHOULD_PAY" property="shouldPay" jdbcType="DECIMAL" />
+    <result column="TAX_DEDUCTION" property="taxDeduction" jdbcType="DECIMAL" />
+    <result column="SOCIAL_SECURITY" property="socialSecurity" jdbcType="DECIMAL" />
+    <result column="REAL_PAY" property="realPay" jdbcType="DECIMAL" />
+    <result column="PERTAIN_MONTH" property="pertainMonth" jdbcType="VARCHAR" />
+    <result column="PROVIDE_DATE" property="provideDate" jdbcType="VARCHAR" />
+    <result column="NOTES" property="notes" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List1" >
+    ID, ST_ID, POSITION, ATTENDANCE_DAYS, ACTUAL_DAYS, BASE_SALARY, SUBSIDY, PRIZE, SHOULD_PAY, 
+    TAX_DEDUCTION, SOCIAL_SECURITY, REAL_PAY, PERTAIN_MONTH, PROVIDE_DATE, NOTES
+  </sql>
+	 <select id="getPayDetailByStId" resultMap="BaseResultMap1" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List1" />
+    from dbw_pay_detail
+    where ST_ID = #{stId}
+  </select>
+	
+	
 </mapper>  
