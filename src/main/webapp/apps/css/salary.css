@@ -1,0 +1,33 @@
+.content {
+    margin: 1rem 0.4rem 0;
+}
+p {
+    height: 0.86rem;
+    line-height: 0.86rem;
+    border-bottom: 1px solid #ccc;
+}
+p:nth-child(1), :nth-child(4) {
+    height: 1rem;
+    line-height: 1rem;
+    background-color: #eee;
+    text-indent: 0.1rem;
+    font-size: 0.5rem;
+    font-weight: bold;
+    border-bottom: 0;
+    color: #f39800
+}
+p:nth-child(3) {
+    border-bottom: 0;
+}
+p span {
+    display: inline-block;
+    width: 50%;
+    font-size: 0.4rem;
+    text-align: right;
+}
+
+.title {
+    display: inline-block;
+    width: 50%;
+    text-align: left;
+}

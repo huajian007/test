@@ -1,0 +1,67 @@
+html,body{
+    height: 100%;
+    font-size: 0.16rem;
+}
+body{
+    /*background:url("images/app_bg.png") no-repeat;*/
+    background-color: #fff;
+    background-size: 100% 100%;
+}
+.content{
+    position: relative;
+    height: 100%;
+}
+.logo{
+    position: absolute;
+    top: 20%;
+    left: 25%;
+    width: 50%;
+    line-height: 0.2rem;
+}
+.text{
+    position: absolute;
+    top: 30%;
+    left: 10%;
+    width: 80%;
+    line-height: 0.2rem;
+    border: 1px solid #d4cac2;
+    border-radius: 0.05rem;
+}
+.text > p{
+    background-color: #ece6e3;
+    height: 1.2rem;
+    line-height: 1.2rem;
+    text-align: center;
+}
+form {
+    background-color: white;
+    text-align: center;
+}
+
+form p {
+    background-color: white;
+    height: 0.8rem;
+    line-height: 0.8rem;
+    text-align: center;
+    margin-top: 0.4rem;
+}
+form p input {
+    font-size: 0.36rem;
+    height: 0.8rem;
+    line-height: 0.8rem;
+    width: 80%;
+    border: 1px solid #d4cac2;
+    text-indent: 0.2rem;
+}
+.confirm-btn {
+    border: none;
+    width: 80%;
+    display: inline-block;
+    background-color: #f39800;
+    border-radius: 0.08rem;
+    color: white;
+    font-size: 0.5rem;
+    height: 1rem;
+    line-height: 1rem;
+    margin: 0.4rem 0 0.3rem 0;
+}
