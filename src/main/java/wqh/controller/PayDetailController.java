@@ -38,27 +38,6 @@ public class PayDetailController {
 
 	@RequestMapping(value="showPayDetail",produces="application/json;charset=UTF-8")
 	public @ResponseBody Map<String, Object>  showPayDetail(String id) {
-//			PayDetail py = payDetailService.getPayDetailByStId(Integer.parseInt(id));
-//			JSONObject j=new JSONObject();
-//			if(py==null){
-//				j.put("CODE", "-1");
-//				j.put("CODE", "您不是员工,不能查询工资!");
-//			}else{
-//				j.put("CODE", "1");
-//				j.put("MESSAGE", "SUCCESS");
-//				j.put("DETAILE",py);
-//			}
-//			response.setCharacterEncoding("UTF-8");
-//			PrintWriter out=null;
-//			try {
-//				out = response.getWriter();
-//				out.print(j);
-//				out.flush();
-//				out.close();
-//			} catch (IOException e) {
-//				// TODO Auto-generated catch block
-//				e.printStackTrace();
-//			}
 		Map<String, Object> j = new HashMap<String, Object>();
 		PayDetail py = payDetailService.getPayDetailByStId(Integer.parseInt(id));
 		if(py==null){
