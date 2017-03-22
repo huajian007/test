@@ -39,10 +39,16 @@ public class PayDetailController {
 	@RequestMapping(value="showPayDetail",produces="application/json;charset=UTF-8")
 	public @ResponseBody Map<String, Object>  showPayDetail(String id) {
 		Map<String, Object> j = new HashMap<String, Object>();
+		if(id==null||id.equals("")){
+			j.put("CODE", "-1");
+			j.put("MESSAGE", "您已下线,请重新登录!");
+			return j;
+		}
+		
 		PayDetail py = payDetailService.getPayDetailByStId(Integer.parseInt(id));
 		if(py==null){
 			j.put("CODE", "-1");
-			j.put("MESSAGE", "您不是员工,不能查询工资!");
+			j.put("MESSAGE", "您不是员工,不能查询薪资!");
 		}else{
 			j.put("CODE", "1");
 			j.put("MESSAGE", "SUCCESS");
