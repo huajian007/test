@@ -40,7 +40,7 @@ public class PayDetailController {
 	public @ResponseBody Map<String, Object>  showPayDetail(String id) {
 		Map<String, Object> j = new HashMap<String, Object>();
 		if(id==null||id.equals("")){
-			j.put("CODE", "-1");
+			j.put("CODE", "-2");
 			j.put("MESSAGE", "您已下线,请重新登录!");
 			return j;
 		}
