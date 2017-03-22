@@ -42,7 +42,7 @@ public class PayDetailController {
 		PayDetail py = payDetailService.getPayDetailByStId(Integer.parseInt(id));
 		if(py==null){
 			j.put("CODE", "-1");
-			j.put("CODE", "您不是员工,不能查询工资!");
+			j.put("MESSAGE", "您不是员工,不能查询工资!");
 		}else{
 			j.put("CODE", "1");
 			j.put("MESSAGE", "SUCCESS");

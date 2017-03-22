@@ -20,7 +20,7 @@ public class PayDetail {
     private BigDecimal prize;
 
     private BigDecimal shouldPay;
-
+    private String stname;
     private BigDecimal taxDeduction;
 
     private BigDecimal socialSecurity;
@@ -56,7 +56,12 @@ public class PayDetail {
     public void setPosition(String position) {
         this.position = position == null ? null : position.trim();
     }
-
+    public String getStname() {
+		return stname;
+	}
+	public void setStname(String stname) {
+		this.stname = stname;
+	}
     public BigDecimal getAttendanceDays() {
         return attendanceDays;
     }
