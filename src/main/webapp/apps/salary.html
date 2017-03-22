@@ -12,10 +12,10 @@
 <section class="content">
     <p>出勤明细</p>
     <p><span class="title">应出勤天数:</span><span>12天</span></p>
-    <p><span class="title">实际出勤天数:</span><span>10天</span></p>
+    <p><span class="title">实际出勤天数:</span><span id="attendanceDays">10天</span></p>
     <p>工资明细</p>
-    <p><span class="title">基本工资:</span><span>100元</span></p>
-    <p><span class="title">补贴:</span><span>100元</span></p>
+    <p><span class="title">基本工资:</span><span id="baseSalary">''</span></p>
+    <p><span class="title">补贴:</span><span id="subsidy">100元</span></p>
     <p><span class="title">奖金:</span><span>100元</span></p>
     <p><span class="title">应发工资:</span><span>100元</span></p>
     <p><span class="title">扣税:</span><span>100元</span></p>
@@ -23,9 +23,17 @@
     <p><span class="title">实发工资:</span><span>100元</span></p>
     <p><span class="title">发放时间:</span><span>12月2日</span></p>
 </section>
-<!-- <script src="lib/zepto.min.js"></script> -->
+<script src="lib/zepto.min.js"></script>
 <script src="lib/common.js"></script>
 <script>
+
+	var data = ''
+    App.getPayDetail(data, function(res) {
+        console.log(res);
+        $('#attendanceDays').html(res.DETAILE.attendanceDays + '天');
+        $('#baseSalary').html(res.DETAILE.baseSalary + '元');
+        $('#subsidy').html(res.DETAILE.subsidy + '元'); 
+    })
 
 
 </script>
