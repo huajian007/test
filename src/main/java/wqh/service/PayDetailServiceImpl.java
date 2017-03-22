@@ -18,7 +18,7 @@ public class PayDetailServiceImpl implements PayDetailServiceI {
 		this.userMapper = userMapper;
 	}
 
-	public PayDetail getPayDetailByStId(int id) {
+	public PayDetail getPayDetailByStId(String id) {
 		return userMapper.getPayDetailByStId(id);
 	}
 

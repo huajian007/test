@@ -59,12 +59,12 @@
     ID, ST_ID, POSITION, ATTENDANCE_DAYS, ACTUAL_DAYS, BASE_SALARY, SUBSIDY, PRIZE, SHOULD_PAY, 
     TAX_DEDUCTION, SOCIAL_SECURITY, REAL_PAY, PERTAIN_MONTH, PROVIDE_DATE, NOTES,ST_NAME
   </sql>
-	 <select id="getPayDetailByStId" resultMap="BaseResultMap1" parameterType="java.lang.Integer" >
+	 <select id="getPayDetailByStId" resultMap="BaseResultMap1" parameterType="java.lang.String" >
     select 
     D.ID,D.ST_ID,D.POSITION,D.ATTENDANCE_DAYS,D.ACTUAL_DAYS,D.BASE_SALARY,D.SUBSIDY,D.PRIZE,D.SHOULD_PAY,D.
     TAX_DEDUCTION,D.SOCIAL_SECURITY,D.REAL_PAY,D.PERTAIN_MONTH,D.PROVIDE_DATE,D.NOTES,s.ST_NAME AS ST_NAME
     from dbw_pay_detail d join dbw_staff s on d.st_id=s.id
-    where s.status=1 and  d.ST_ID = #{stId}
+    where s.status=1 and  ST_MOBILE = #{mobile,jdbcType=VARCHAR}
   </select>
 
 </mapper>  

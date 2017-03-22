@@ -54,6 +54,7 @@ public class UserController {
 		map.put("password", password);
 		String str = userService.getUserByMobile(map);
 		if ("00000".equals(str)) {
+			request.setAttribute("mobile", mobile);
 			return "apps/salary";
 		} else if ("11111".equals(str)) {
 			request.setAttribute("message", "离职人员无法查询");

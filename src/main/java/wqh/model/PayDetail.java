@@ -8,6 +8,8 @@ public class PayDetail {
     private Integer stId;
 
     private String position;
+    
+    private String stname;
 
     private BigDecimal attendanceDays;
 
@@ -20,7 +22,7 @@ public class PayDetail {
     private BigDecimal prize;
 
     private BigDecimal shouldPay;
-    private String stname;
+    
     private BigDecimal taxDeduction;
 
     private BigDecimal socialSecurity;
@@ -41,7 +43,7 @@ public class PayDetail {
         this.id = id;
     }
 
-    public Integer getStId() {
+	public Integer getStId() {
         return stId;
     }
 

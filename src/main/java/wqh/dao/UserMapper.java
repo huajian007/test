@@ -10,6 +10,6 @@ public interface UserMapper {
 	
 	public int modifyPassword(Map map);
 	
-	public PayDetail getPayDetailByStId(int id);
+	public PayDetail getPayDetailByStId(String id);
 	
 }
