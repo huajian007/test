@@ -1,76 +1,74 @@
 package wqh.model;
 
-import java.util.Date;
-
 public class User {
-
 	private String id;
-
-	private Date createdatetime;
-
-	private Date modifydatetime;
-
 	private String name;
-
-	private String pwd;
-
-	private Date createTime;
-
-	private Date updateTime;
-
+	private String bir;
+	private String sex;
+	private String entryTime;
+	private String email;
+	private String mobile;
+	private String password;
+	private String status;
+	private String notes;
 	public String getId() {
 		return id;
 	}
-
 	public void setId(String id) {
-		this.id = id == null ? null : id.trim();
+		this.id = id;
 	}
-
-	public Date getCreatedatetime() {
-		return createdatetime;
-	}
-
-	public void setCreatedatetime(Date createdatetime) {
-		this.createdatetime = createdatetime;
-	}
-
-	public Date getModifydatetime() {
-		return modifydatetime;
-	}
-
-	public void setModifydatetime(Date modifydatetime) {
-		this.modifydatetime = modifydatetime;
-	}
-
 	public String getName() {
 		return name;
 	}
-
 	public void setName(String name) {
-		this.name = name == null ? null : name.trim();
+		this.name = name;
 	}
-
-	public String getPwd() {
-		return pwd;
+	public String getBir() {
+		return bir;
 	}
-
-	public void setPwd(String pwd) {
-		this.pwd = pwd == null ? null : pwd.trim();
+	public void setBir(String bir) {
+		this.bir = bir;
 	}
-
-	public Date getCreateTime() {
-		return createTime;
+	public String getSex() {
+		return sex;
 	}
-
-	public void setCreateTime(Date createTime) {
-		this.createTime = createTime;
+	public void setSex(String sex) {
+		this.sex = sex;
 	}
-
-	public Date getUpdateTime() {
-		return updateTime;
+	public String getEntryTime() {
+		return entryTime;
 	}
-
-	public void setUpdateTime(Date updateTime) {
-		this.updateTime = updateTime;
+	public void setEntryTime(String entryTime) {
+		this.entryTime = entryTime;
+	}
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
+	public String getMobile() {
+		return mobile;
+	}
+	public void setMobile(String mobile) {
+		this.mobile = mobile;
+	}
+	public String getPassword() {
+		return password;
+	}
+	public void setPassword(String password) {
+		this.password = password;
+	}
+	public String getStatus() {
+		return status;
+	}
+	public void setStatus(String status) {
+		this.status = status;
+	}
+	public String getNotes() {
+		return notes;
+	}
+	public void setNotes(String notes) {
+		this.notes = notes;
 	}
 }

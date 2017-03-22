@@ -1,7 +1,20 @@
 package wqh.service;
 
-import wqh.model.User;
+import java.util.Map;
 
 public interface UserServiceI {
-	public User getUserById(String id);
+	/**
+	 * 获取登录信息
+	 * 
+	 * @param map
+	 * @return
+	 */
+	public String getUserByMobile(Map map);
+
+	/**
+	 * 修改登录密码
+	 * 
+	 * @param map
+	 */
+	public int modifyPassword(Map map);
 }

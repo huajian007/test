@@ -2,24 +2,75 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="wqh.dao.UserMapper">
 	<resultMap id="BaseResultMap" type="wqh.model.User">
-		<id column="ID" property="id" jdbcType="VARCHAR" />
-		<result column="CREATEDATETIME" property="createdatetime"
-			jdbcType="TIMESTAMP" />
-		<result column="MODIFYDATETIME" property="modifydatetime"
-			jdbcType="TIMESTAMP" />
-		<result column="NAME" property="name" jdbcType="VARCHAR" />
-		<result column="PWD" property="pwd" jdbcType="VARCHAR" />
-		<result column="CREATE_TIME" property="createTime" jdbcType="DATE" />
-		<result column="UPDATE_TIME" property="updateTime" jdbcType="DATE" />
+		<result column="ID" property="id" jdbcType="VARCHAR" />
+
+		<result column="ST_NAME" property="name" jdbcType="VARCHAR" />
+
+		<result column="ST_BIR" property="bir" jdbcType="VARCHAR" />
+
+		<result column="ST_SEX" property="sex" jdbcType="VARCHAR" />
+
+		<result column="ENTRY_TIME" property="entryTime" jdbcType="VARCHAR" />
+
+		<result column="ST_EMAIL" property="email" jdbcType="VARCHAR" />
+
+		<result column="ST_MOBILE" property="mobile" jdbcType="VARCHAR" />
+
+		<result column="PASSWORD" property="password" jdbcType="VARCHAR" />
+
+		<result column="STATUS" property="status" jdbcType="VARCHAR" />
+
+		<result column="NOTES" property="notes" jdbcType="VARCHAR" />
 	</resultMap>
-	<sql id="Base_Column_List">
-		ID, CREATEDATETIME, MODIFYDATETIME, NAME, PWD, CREATE_TIME, UPDATE_TIME
-	</sql>
-	<select id="selectByPrimaryKey" resultMap="BaseResultMap"
+	<select id="selectByMobile" resultMap="BaseResultMap"
 		parameterType="java.lang.String">
-		select
-		<include refid="Base_Column_List" />
-		from tuser
-		where ID = #{id,jdbcType=VARCHAR}
+		select *
+		from DBW_STAFF
+		where ST_MOBILE =
+		#{mobile,jdbcType=VARCHAR}
 	</select>
+
+	<update id="modifyPassword" parameterType="Map">
+		update DBW_STAFF a
+		set
+		a.PASSWORD=#{password,jdbcType=VARCHAR}
+		where
+		a.ST_MOBILE=#{mobile,jdbcType=VARCHAR}
+	</update>
+	<resultMap id="BaseResultMap1" type="wqh.model.PayDetail">
+		<id column="ID" property="id" jdbcType="INTEGER" />
+		<result column="ST_ID" property="stId" jdbcType="INTEGER" />
+		<result column="POSITION" property="position" jdbcType="VARCHAR" />
+		<result column="ATTENDANCE_DAYS" property="attendanceDays"
+			jdbcType="DECIMAL" />
+		<result column="ACTUAL_DAYS" property="actualDays" jdbcType="DECIMAL" />
+		<result column="BASE_SALARY" property="baseSalary" jdbcType="DECIMAL" />
+		<result column="SUBSIDY" property="subsidy" jdbcType="DECIMAL" />
+		<result column="PRIZE" property="prize" jdbcType="DECIMAL" />
+		<result column="SHOULD_PAY" property="shouldPay" jdbcType="DECIMAL" />
+		<result column="TAX_DEDUCTION" property="taxDeduction"
+			jdbcType="DECIMAL" />
+		<result column="SOCIAL_SECURITY" property="socialSecurity"
+			jdbcType="DECIMAL" />
+		<result column="REAL_PAY" property="realPay" jdbcType="DECIMAL" />
+		<result column="PERTAIN_MONTH" property="pertainMonth"
+			jdbcType="VARCHAR" />
+		<result column="PROVIDE_DATE" property="provideDate" jdbcType="VARCHAR" />
+		<result column="NOTES" property="notes" jdbcType="VARCHAR" />
+	</resultMap>
+	<sql id="Base_Column_List1">
+		ID, ST_ID, POSITION, ATTENDANCE_DAYS, ACTUAL_DAYS,
+		BASE_SALARY, SUBSIDY,
+		PRIZE, SHOULD_PAY,
+		TAX_DEDUCTION, SOCIAL_SECURITY,
+		REAL_PAY, PERTAIN_MONTH, PROVIDE_DATE, NOTES
+	</sql>
+	<select id="getPayDetailByStId" resultMap="BaseResultMap1"
+		parameterType="java.lang.Integer">
+		select
+		<include refid="Base_Column_List1" />
+		from dbw_pay_detail
+		where ST_ID = #{stId}
+	</select>
+
 </mapper>  
