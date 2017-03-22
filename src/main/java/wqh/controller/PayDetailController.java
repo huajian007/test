@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.view.json.MappingJackson2JsonView;
@@ -36,8 +37,9 @@ public class PayDetailController {
 		return "salary";
 	}
 
-	@RequestMapping(value="showPayDetail",produces="application/json;charset=UTF-8")
-	public @ResponseBody Map<String, Object>  showPayDetail(String id) {
+
+	@RequestMapping(value="showPayDetail", method = RequestMethod.POST,produces="application/json;charset=UTF-8")
+	public @ResponseBody Map<String, Object>  showPayDetail(HttpServletRequest request,String id) {
 		Map<String, Object> j = new HashMap<String, Object>();
 		if(id==null||id.equals("")){
 			j.put("CODE", "-2");
@@ -45,7 +47,7 @@ public class PayDetailController {
 			return j;
 		}
 		
-		PayDetail py = payDetailService.getPayDetailByStId(Integer.parseInt(id));
+		PayDetail py = payDetailService.getPayDetailByStId(id);
 		if(py==null){
 			j.put("CODE", "-1");
 			j.put("MESSAGE", "您不是员工,不能查询薪资!");
