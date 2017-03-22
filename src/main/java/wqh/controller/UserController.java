@@ -58,7 +58,7 @@ public class UserController {
 		} else if ("11111".equals(str)) {
 			request.setAttribute("message", "离职人员无法查询");
 			return "apps/error";
-		} else if ("33333".equals(str)) {
+		} else if ("22222".equals(str)) {
 			return "apps/password";
 		} else {
 			request.setAttribute("message", "帐号密码错误");
