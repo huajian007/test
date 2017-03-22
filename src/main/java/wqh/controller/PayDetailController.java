@@ -1,10 +1,17 @@
 package wqh.controller;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.view.json.MappingJackson2JsonView;
 
 import wqh.model.PayDetail;
 import wqh.service.PayDetailServiceI;
@@ -24,27 +31,44 @@ public class PayDetailController {
 		this.payDetailService = payDetailService;
 	}
 
+	@RequestMapping("/toPayDetail")
+	public String toPayDetail(HttpServletRequest request) {
+		return "salary";
+	}
 
-
-	@RequestMapping("/showPayDetail")
-	public String showPayDetail(String id, HttpServletRequest request) {
-		try {
-			PayDetail py = payDetailService.getPayDetailByStId(Integer.parseInt(id));
-			if(py==null){
-				request.setAttribute("CODE", "ERROR2");
-				request.setAttribute("MESSAGE", "您不是员工,不能查询工资!");
-				System.out.println("dddddddddddddd");
-				return "showPayDetail";
-			}
-			request.setAttribute("PAYDETAIL", py);
-			request.setAttribute("CODE", "SUCCESS");
-			
-		} catch (Exception e) {
-			request.setAttribute("CODE", "ERROR1");
-			System.out.println("----------");
-			request.setAttribute("MESSAGE", "请重新刷新!");
-			return "showPayDetail";
+	@RequestMapping(value="showPayDetail",produces="application/json;charset=UTF-8")
+	public @ResponseBody Map<String, Object>  showPayDetail(String id) {
+//			PayDetail py = payDetailService.getPayDetailByStId(Integer.parseInt(id));
+//			JSONObject j=new JSONObject();
+//			if(py==null){
+//				j.put("CODE", "-1");
+//				j.put("CODE", "您不是员工,不能查询工资!");
+//			}else{
+//				j.put("CODE", "1");
+//				j.put("MESSAGE", "SUCCESS");
+//				j.put("DETAILE",py);
+//			}
+//			response.setCharacterEncoding("UTF-8");
+//			PrintWriter out=null;
+//			try {
+//				out = response.getWriter();
+//				out.print(j);
+//				out.flush();
+//				out.close();
+//			} catch (IOException e) {
+//				// TODO Auto-generated catch block
+//				e.printStackTrace();
+//			}
+		Map<String, Object> j = new HashMap<String, Object>();
+		PayDetail py = payDetailService.getPayDetailByStId(Integer.parseInt(id));
+		if(py==null){
+			j.put("CODE", "-1");
+			j.put("CODE", "您不是员工,不能查询工资!");
+		}else{
+			j.put("CODE", "1");
+			j.put("MESSAGE", "SUCCESS");
+			j.put("DETAILE",py);
 		}
-		return "showPayDetail";
+		return j;
 	}
 }
